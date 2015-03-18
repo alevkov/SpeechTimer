@@ -376,11 +376,11 @@
             </objects>
             <point key="canvasLocation" x="24" y="40"/>
         </scene>
-        <!--Lessons-->
+        <!--Sessions-->
         <scene sceneID="vSZ-ZN-YgN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Llr-18-z6p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lessons" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Sessions" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mpV-OQ-efI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -395,11 +395,11 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Second-->
+        <!--Coming Soon-->
         <scene sceneID="niI-ei-GXy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nyh-Hz-ZPH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Coming Soon" image="first" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r3b-la-oj0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -417,6 +417,5 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
     </resources>
 </document>
