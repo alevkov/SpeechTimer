@@ -7,7 +7,6 @@
 //
 
 #import "Sessions.h"
-#import "Summary.h"
 #import "Timer.h"
 
 @implementation Sessions
