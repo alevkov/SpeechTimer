@@ -80,7 +80,6 @@
 
 #pragma mark - UITextFieldDelegate
 
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	if( textField == self.practiceTimeTextField )
@@ -127,11 +126,11 @@
 	[_recorder updateMeters];
 	decibels = [_recorder averagePowerForChannel:0];
 	/* Strict supervision mode -> countdown only starts when a certain power level is detected */
-	if (decibels > -21.0)
+	if (decibels > -18.0)
 	{
 		isCountdownPaused = NO;
 	}
-	else if (decibels < -21.0)
+	else if (decibels < -18.0)
 	{
 		isCountdownPaused = YES;
 	}

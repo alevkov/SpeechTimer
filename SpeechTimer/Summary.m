@@ -21,10 +21,10 @@
 {
 	[super viewDidAppear:YES];
 	
-	_enteredMinutesLabel.text		= [NSString stringWithFormat:@"%.02f", _enteredMinutes];
-	_productivePercentageLabel.text = [NSString stringWithFormat:@"%.02f", _productivityPercentage];
-	_productiveMinutesLabel.text	= [NSString stringWithFormat:@"%.02f", _productiveElapsedMins];
-	_actualElapsedMinutesLabel.text = [NSString stringWithFormat:@"%.02f", _actualElapsedMinutes];
+	_enteredMinutesLabel.text		= [NSString stringWithFormat:@"%.01f", _enteredMinutes];
+	_productivePercentageLabel.text = [NSString stringWithFormat:@"%.01f", _productivityPercentage];
+	_productiveMinutesLabel.text	= [NSString stringWithFormat:@"%.01f", _productiveElapsedMins];
+	_actualElapsedMinutesLabel.text = [NSString stringWithFormat:@"%.01f", _actualElapsedMinutes];
 }
 
 - (void)didReceiveMemoryWarning
