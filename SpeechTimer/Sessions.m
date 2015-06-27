@@ -107,6 +107,7 @@
 	NSString *dateToday = [formatter stringFromDate:[NSDate date]];
 	/* Add the date to the session array */
 	[_sessions addObject:dateToday];
+	NSLog(@"%lu", (unsigned long)_sessions[0]);
 	
 	NSString * storyBoardName = @"Main";
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardName bundle: nil];

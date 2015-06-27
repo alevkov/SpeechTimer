@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>ABE4B1A9-81A9-44A4-A28C-FB79C6D1A334</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PianoControl</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B1386E7B494A7CF50681B224D8D1265CADD2D37F</key>
+		<string>https://github.com/killtheheron/SpeechTimer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PianoControl.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B1386E7B494A7CF50681B224D8D1265CADD2D37F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/killtheheron/SpeechTimer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B1386E7B494A7CF50681B224D8D1265CADD2D37F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B1386E7B494A7CF50681B224D8D1265CADD2D37F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SpeechTimer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

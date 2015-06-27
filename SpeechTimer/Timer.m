@@ -13,6 +13,17 @@
 
 #pragma mark - IBAction
 
+- (IBAction)unwindToTimer:(UIStoryboardSegue *)unwindSegue
+{
+	/* persist session data */
+}
+
+- (IBAction)unwindToSessions:(id)sender
+{
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 - (IBAction)startButtonTapped:(id)sender
 {
 	isTimerStopped		= NO;
@@ -78,6 +89,11 @@
     [super didReceiveMemoryWarning];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+	return YES;
+}
+
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -126,11 +142,11 @@
 	[_recorder updateMeters];
 	decibels = [_recorder averagePowerForChannel:0];
 	/* Strict supervision mode -> countdown only starts when a certain power level is detected */
-	if (decibels > -18.0)
+	if (decibels > -20.0)
 	{
 		isCountdownPaused = NO;
 	}
-	else if (decibels < -18.0)
+	else if (decibels < -20.0)
 	{
 		isCountdownPaused = YES;
 	}

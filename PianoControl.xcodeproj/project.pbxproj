@@ -128,10 +128,10 @@
 			children = (
 				3A058CB41AB773F30001A6DA /* Sessions.h */,
 				3A058CB51AB773F30001A6DA /* Sessions.m */,
-				3A058CB61AB773F30001A6DA /* Summary.h */,
-				3A058CB71AB773F30001A6DA /* Summary.m */,
 				3A058CB81AB773F30001A6DA /* Timer.h */,
 				3A058CB91AB773F30001A6DA /* Timer.m */,
+				3A058CB61AB773F30001A6DA /* Summary.h */,
+				3A058CB71AB773F30001A6DA /* Summary.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

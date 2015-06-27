@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Timer.h"
 
-@interface Summary : UIViewController <timerViewDelegate>
+@interface Summary : UIViewController
+{
+	//..
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *enteredMinutesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *actualElapsedMinutesLabel;
@@ -20,5 +22,6 @@
 @property (nonatomic, assign) float productivityPercentage;
 @property (nonatomic, assign) float enteredMinutes;
 @property (nonatomic, assign) float actualElapsedMinutes;
+
 
 @end

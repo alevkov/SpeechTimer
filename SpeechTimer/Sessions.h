@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "Timer.h"
 
 @interface Sessions : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

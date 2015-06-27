@@ -7,10 +7,12 @@
 //
 
 #import "Summary.h"
+#import "Sessions.h"
 
 @implementation Summary
 
 #pragma mark - View Lifecycle
+
 
 - (void)viewDidLoad
 {
@@ -30,6 +32,11 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+	return YES;
 }
 
 @end
