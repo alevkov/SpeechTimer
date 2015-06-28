@@ -127,9 +127,19 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	NSManagedObjectContext *context = [self managedObjectContext];
+	
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[_sessions removeObjectAtIndex:indexPath.row];
-		[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+		[context deleteObject:[self.sessions objectAtIndex:indexPath.row]];
+		
+		NSError *error = nil;
+		if (![context save:&error]) {
+			NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+			return;
+		}
+		
+		[self.sessions removeObjectAtIndex:indexPath.row];
+		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}
 }
 
@@ -137,7 +147,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	[self performSegueWithIdentifier:@"toSummary" sender:self];
+	
 }
 
 #pragma mark - Presentation
