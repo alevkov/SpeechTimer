@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C81h" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Session" syncable="YES">
+        <attribute name="actualMins" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enteredMins" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productiveMins" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="productivePercentage" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Session" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
+</model>

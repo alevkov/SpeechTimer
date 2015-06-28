@@ -11,8 +11,51 @@
 
 @implementation Summary
 
-#pragma mark - View Lifecycle
+#pragma mark - CoreData
 
+- (NSManagedObjectContext *)managedObjectContext {
+	NSManagedObjectContext *context = nil;
+	id delegate = [[UIApplication sharedApplication] delegate];
+	if ([delegate performSelector:@selector(managedObjectContext)]) {
+		context = [delegate managedObjectContext];
+	}
+	return context;
+}
+
+- (IBAction)cancel:(id)sender {
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)save:(id)sender {
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"MMM dd, YYYY"];
+	[formatter setDateStyle:NSDateFormatterMediumStyle];
+	
+	/* Get the date today */
+	NSString *dateToday = [formatter stringFromDate:[NSDate date]];
+	/* Return context from delegate */
+	NSManagedObjectContext *context = [self managedObjectContext];
+	
+	// Create a new managed object
+	NSManagedObject *newSession = [NSEntityDescription insertNewObjectForEntityForName:@"Session"
+																inManagedObjectContext:context];
+	
+	[newSession setValue:self.enteredMinutesLabel.text			forKey:@"enteredMins"];
+	[newSession setValue:self.productivePercentageLabel.text	forKey:@"productivePercentage"];
+	[newSession setValue:self.productiveMinutesLabel.text		forKey:@"productiveMins"];
+	[newSession setValue:self.actualElapsedMinutesLabel.text	forKey:@"actualMins"];
+	[newSession setValue:dateToday								forKey:@"date"];
+	
+	NSError *error = nil;
+	// Save the object to persistent store
+	if (![context save:&error]) {
+		NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+	} else {
+		NSLog(@"Successfully saved session");
+	}
+}
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad
 {
@@ -23,10 +66,10 @@
 {
 	[super viewDidAppear:YES];
 	
-	_enteredMinutesLabel.text		= [NSString stringWithFormat:@"%.01f", _enteredMinutes];
-	_productivePercentageLabel.text = [NSString stringWithFormat:@"%.01f", _productivityPercentage];
-	_productiveMinutesLabel.text	= [NSString stringWithFormat:@"%.01f", _productiveElapsedMins];
-	_actualElapsedMinutesLabel.text = [NSString stringWithFormat:@"%.01f", _actualElapsedMinutes];
+	self.enteredMinutesLabel.text		= [NSString stringWithFormat:@"%.01f", _enteredMinutes];
+	self.productivePercentageLabel.text = [NSString stringWithFormat:@"%.01f", _productivityPercentage];
+	self.productiveMinutesLabel.text	= [NSString stringWithFormat:@"%.01f", _productiveElapsedMins];
+	self.actualElapsedMinutesLabel.text = [NSString stringWithFormat:@"%.01f", _actualElapsedMinutes];
 }
 
 - (void)didReceiveMemoryWarning

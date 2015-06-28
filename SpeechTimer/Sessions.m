@@ -9,7 +9,23 @@
 #import "Sessions.h"
 #import "Timer.h"
 
+#define ENTERED_TAG 1
+#define DATE_TAG 2
+#define ACTUAL_TAG 3
+
 @implementation Sessions
+
+#pragma mark - CoreData
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+	NSManagedObjectContext *context = nil;
+	id delegate = [[UIApplication sharedApplication] delegate];
+	if ([delegate performSelector:@selector(managedObjectContext)]) {
+		context = [delegate managedObjectContext];
+	}
+	return context;
+}
 
 #pragma mark - IBAction
 
@@ -38,6 +54,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:YES];
+	
+	NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Session"];
+	self.sessions = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy];
+	
 	[_tableView reloadData];
 }
 
@@ -76,7 +97,31 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-	cell.textLabel.text = [_sessions objectAtIndex:indexPath.row];
+	NSManagedObject *session = [self.sessions objectAtIndex:indexPath.row];
+	
+	UILabel *enteredMinutesLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(cell.contentView.frame)+30.0, CGRectGetMidY(cell.contentView.frame), 220.0, 15.0)];
+	UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMidX(cell.contentView.frame), CGRectGetMidY(cell.contentView.frame), 220.0, 15.0)];
+	UILabel *actualMinutesLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.contentView.frame)-35.0, CGRectGetMidY(cell.contentView.frame), 220.0, 15.0)];
+	
+	enteredMinutesLabel.tag = ENTERED_TAG;
+	enteredMinutesLabel.font = [UIFont systemFontOfSize:14.0];
+	enteredMinutesLabel.textColor = [UIColor blackColor];
+	enteredMinutesLabel.text = [NSString stringWithFormat:@"Entered: %@", [session valueForKey:@"enteredMins"]];
+	[cell.contentView addSubview:enteredMinutesLabel];
+	
+	dateLabel.tag = DATE_TAG;
+	dateLabel.font = [UIFont systemFontOfSize:14.0];
+	dateLabel.textColor = [UIColor blackColor];
+	dateLabel.text = [session valueForKey:@"date"];
+	[cell.contentView addSubview:dateLabel];
+	
+	actualMinutesLabel.tag = ACTUAL_TAG;
+	actualMinutesLabel.font = [UIFont systemFontOfSize:14.0];
+	actualMinutesLabel.textColor = [UIColor blackColor];
+	actualMinutesLabel.text = [NSString stringWithFormat:@"Productive: %@%%", [session valueForKey:@"productivePercentage"]];
+	[cell.contentView addSubview:actualMinutesLabel];
+	
+	cell.textLabel.text = [NSString stringWithFormat:@"Elapsed: %@", [session valueForKey:@"actualMins"]];
 }
 
 // Override to support editing the table view.
@@ -99,16 +144,6 @@
 
 - (void)presentTimerView
 {
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"MMM dd, YYYY"];
-	[formatter setDateStyle:NSDateFormatterMediumStyle];
-	
-	/* Get the date today */
-	NSString *dateToday = [formatter stringFromDate:[NSDate date]];
-	/* Add the date to the session array */
-	[_sessions addObject:dateToday];
-	NSLog(@"%lu", (unsigned long)_sessions[0]);
-	
 	NSString * storyBoardName = @"Main";
 	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyBoardName bundle: nil];
 	UIViewController * timer = [storyboard instantiateViewControllerWithIdentifier:@"timer"];

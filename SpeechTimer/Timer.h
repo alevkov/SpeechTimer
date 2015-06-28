@@ -17,8 +17,8 @@
 	BOOL  isCountdownPaused;
 	BOOL  isTimerStopped;
 	
-	float minutes, productiveElapsedMins, decibels, percentage, actualElapsedMinutes;
-	int	  productiveElapsedSecs, currentMin, currentSec;
+	float productiveElapsedMins, decibels, percentage, actualElapsedMinutes;
+	int	  minutes, productiveElapsedSecs, currentMin, currentSec;
 	
 	AVAudioRecorder		*_recorder;
 	NSTimer				*_countdownTimer, *_decibelTimer, *_backgroundTimer;

@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreData/CoreData.h>
 
 @interface Sessions : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *sessions;
+@property (strong) NSMutableArray *sessions;
 
 @property(nonatomic, assign) int productiveElapsedMins;
 @property(nonatomic, assign) int productivityPercentage;

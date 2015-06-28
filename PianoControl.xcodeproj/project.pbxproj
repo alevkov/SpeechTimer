@@ -17,6 +17,8 @@
 		3A058CC01AB7740F0001A6DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A058CBE1AB7740F0001A6DA /* main.m */; };
 		3A058CCC1AB775780001A6DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A058CC81AB775780001A6DA /* LaunchScreen.xib */; };
 		3A058CCD1AB775780001A6DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A058CCA1AB775780001A6DA /* Main.storyboard */; };
+		3A2118C71B3E3DFE009FC58E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A2118C61B3E3DFE009FC58E /* CoreData.framework */; };
+		3A2118D21B3E4BB7009FC58E /* SessionsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A2118D01B3E4BB7009FC58E /* SessionsModel.xcdatamodeld */; };
 		3AAB71D51AB2751F0055F11E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAB71D41AB2751F0055F11E /* AVFoundation.framework */; };
 		3AAB71D71AB275250055F11E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAB71D61AB275250055F11E /* CoreAudio.framework */; };
 		3AAB71D91AB284B40055F11E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAB71D81AB284B40055F11E /* CoreGraphics.framework */; };
@@ -48,6 +50,8 @@
 		3A058CBE1AB7740F0001A6DA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SpeechTimer/main.m; sourceTree = SOURCE_ROOT; };
 		3A058CC91AB775780001A6DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SpeechTimer/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3A058CCB1AB775780001A6DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SpeechTimer/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A2118C61B3E3DFE009FC58E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3A2118D11B3E4BB7009FC58E /* SessionsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SessionsModel.xcdatamodel; sourceTree = "<group>"; };
 		3A4EAF421AB1235B00CDEE9B /* PianoControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PianoControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4EAF5E1AB1235B00CDEE9B /* PianoControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PianoControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAB71D41AB2751F0055F11E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2118C71B3E3DFE009FC58E /* CoreData.framework in Frameworks */,
 				3AAB71DB1AB284BE0055F11E /* UIKit.framework in Frameworks */,
 				3AAB71D91AB284B40055F11E /* CoreGraphics.framework in Frameworks */,
 				3AAB71D71AB275250055F11E /* CoreAudio.framework in Frameworks */,
@@ -81,6 +86,8 @@
 		3A4EAF391AB1235B00CDEE9B = {
 			isa = PBXGroup;
 			children = (
+				3A2118D01B3E4BB7009FC58E /* SessionsModel.xcdatamodeld */,
+				3A2118C61B3E3DFE009FC58E /* CoreData.framework */,
 				3A058CC81AB775780001A6DA /* LaunchScreen.xib */,
 				3A058CCA1AB775780001A6DA /* Main.storyboard */,
 				3AAB71DA1AB284BE0055F11E /* UIKit.framework */,
@@ -242,6 +249,7 @@
 				3A058CAA1AB7739D0001A6DA /* AppDelegate.m in Sources */,
 				3A058CBC1AB773F30001A6DA /* Timer.m in Sources */,
 				3A058CBA1AB773F30001A6DA /* Sessions.m in Sources */,
+				3A2118D21B3E4BB7009FC58E /* SessionsModel.xcdatamodeld in Sources */,
 				3A058CC01AB7740F0001A6DA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +462,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3A2118D01B3E4BB7009FC58E /* SessionsModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A2118D11B3E4BB7009FC58E /* SessionsModel.xcdatamodel */,
+			);
+			currentVersion = 3A2118D11B3E4BB7009FC58E /* SessionsModel.xcdatamodel */;
+			path = SessionsModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3A4EAF3A1AB1235B00CDEE9B /* Project object */;
 }

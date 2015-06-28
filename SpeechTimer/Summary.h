@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface Summary : UIViewController
 {
-	//..
+	
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *enteredMinutesLabel;
