@@ -57,7 +57,7 @@
 	
 	NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Session"];
-	self.sessions = [[managedObjectContext executeFetchRequest:fetchRequest error:nil]mutableCopy];
+	self.sessions = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
 	
 	[_tableView reloadData];
 }
@@ -101,12 +101,12 @@
 	
 	UILabel *enteredMinutesLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(cell.contentView.frame)+30.0, CGRectGetMidY(cell.contentView.frame), 220.0, 15.0)];
 	UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMidX(cell.contentView.frame), CGRectGetMidY(cell.contentView.frame), 220.0, 15.0)];
-	UILabel *actualMinutesLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.contentView.frame)-35.0, CGRectGetMidY(cell.contentView.frame), 220.0, 15.0)];
+	UILabel *actualMinutesLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.contentView.frame)-50.0, CGRectGetMidY(cell.contentView.frame), 150.0, 15.0)];
 	
 	enteredMinutesLabel.tag = ENTERED_TAG;
 	enteredMinutesLabel.font = [UIFont systemFontOfSize:14.0];
 	enteredMinutesLabel.textColor = [UIColor blackColor];
-	enteredMinutesLabel.text = [NSString stringWithFormat:@"Entered: %@", [session valueForKey:@"enteredMins"]];
+	enteredMinutesLabel.text = [NSString stringWithFormat:@"Entered: %@m", [session valueForKey:@"enteredMins"]];
 	[cell.contentView addSubview:enteredMinutesLabel];
 	
 	dateLabel.tag = DATE_TAG;
@@ -120,8 +120,6 @@
 	actualMinutesLabel.textColor = [UIColor blackColor];
 	actualMinutesLabel.text = [NSString stringWithFormat:@"Productive: %@%%", [session valueForKey:@"productivePercentage"]];
 	[cell.contentView addSubview:actualMinutesLabel];
-	
-	cell.textLabel.text = [NSString stringWithFormat:@"Elapsed: %@", [session valueForKey:@"actualMins"]];
 }
 
 // Override to support editing the table view.

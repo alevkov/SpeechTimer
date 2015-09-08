@@ -253,4 +253,14 @@
 	}
 }
 
+#pragma mark - Aux methods
+
+//- (BOOL) determineGender:(unsigned int) averageFreq
+//{
+//	if (avera) {
+//		<#statements#>
+//	}
+//	return NO;
+//}
+
 @end

@@ -16,6 +16,7 @@
 	
 	BOOL  isCountdownPaused;
 	BOOL  isTimerStopped;
+	BOOL  gender;
 	
 	float productiveElapsedMins, decibels, percentage, actualElapsedMinutes;
 	int	  minutes, productiveElapsedSecs, currentMin, currentSec;
